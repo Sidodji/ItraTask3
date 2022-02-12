@@ -1,0 +1,41 @@
+﻿@model ItraTask3.ViewModels.LoginViewModel
+
+
+<form method="post" asp-controller="Home" asp-action="Login" 
+      asp-route-returnUrl="@Model.ReturnUrl">
+    <table >
+        <tr>
+            <th>
+                <h2>Login</h2>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label asp-for="Email">Name</label>
+            </th>
+            <td>
+                <input asp-for="Email" />
+                <span asp-validation-for="Email"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <div>
+                    <label asp-for="Password">Password</label>
+                   
+                </div>
+            </th>
+            <td>
+                <div>
+                    <input asp-for="Password" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div asp-validation-summary="ModelOnly"></div>
+    <p></p>
+    <div>
+        <input type="submit" value="Enter" />
+    </div>
+</form>

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<ItraTask3.Models.User>
+@{ ViewData["Title"] = "Home Page";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+
+<form asp-controller="Home">
+    <table class="table table-light">
+        <thead class="thead-dark text-light">
+            <tr>
+                <th>
+                    <input type="checkbox" id="check_all" onclick="CheckAll('chek', this)"> Check all
+                </th>
+                <th>
+                    Name user
+                </th>
+                <th>
+                    Email user
+                </th>
+                <th>
+                    Date of Registration
+                </th>
+                <th>
+                    Last log date
+                </th>
+                <th>
+                    Block/unblock
+                </th>
+            </tr>
+
+        </thead>
+
+        @foreach (var i in Model)
+        {
+<tr>
+    <td>
+        <input type="checkbox" name="usersToDeleteIds" value="@i.Id" class="chek">
+    </td>
+
+    <td>
+        @Html.DisplayFor(mitem => i.UserName)
+    </td>
+    <td>
+        @Html.DisplayFor(mitem => i.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(mitem => i.DateOfRegistration)
+    </td>
+    <td>
+        @Html.DisplayFor(mitem => i.LastLogin)
+    </td>
+    <td>
+        @Html.DisplayFor(mitem => i.IsActive)
+    </td>
+</tr>}
+    </table>
+
+    <div class="btn-toolbar">
+        <input class="btn btn-primary" type="submit" name="submit" value="Delete" formmethod="post" formaction="~/Home/MultiplyDelete" />
+        <input class="btn btn-secondary" type="submit" name="submit" value="Block" formmethod="post" formaction="~/Home/MultiplyBlock" />
+        <input class="btn btn-success" type="submit" name="submit" value="Unblock" formmethod="post" formaction="~/Home/MultiplyUnblock" />
+    </div>
+
+</form>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+<script>
+    function CheckAll(className, elem) {
+        var elements = document.getElementsByClassName(className);
+        var l = elements.length;
+
+        if (elem.checked)
+        {
+            for (var i = 0; i < l; i++) {
+                elements[i].checked = true;
+            }
+        }
+        else
+        {
+            for (var i = 0; i < l; i++) {
+                elements[i].checked = false;
+            }
+        }
+    }
+</script>
+
+
+
+
+
