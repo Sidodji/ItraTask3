@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'ItraTask3'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E6E0E6F18CAD4A1CA797BB3D4653B132 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C12ECE54AEAE4923B47918D912D4FC03 }}
           package: .
